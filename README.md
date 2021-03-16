@@ -3,7 +3,7 @@ A game of Flappy Bird made in pure JavaScript, HTML and CSS
 
 [Play Now! :bird:](https://flappy-bird-avital.on.fleek.co/)
 
-![image](https://user-images.githubusercontent.com/57085913/111348071-82056d00-8688-11eb-9e94-26d7c8e36823.png)
-![image](https://user-images.githubusercontent.com/57085913/111348200-a103ff00-8688-11eb-83f2-67ea2b10b7d9.png)
+![image](https://user-images.githubusercontent.com/57085913/111350320-a6fadf80-868a-11eb-9bdc-adec0be8fbf3.png)
+![image](https://user-images.githubusercontent.com/57085913/111350269-9c404a80-868a-11eb-9486-c4dafbf32d1e.png)
 
 
