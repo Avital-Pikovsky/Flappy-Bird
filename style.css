@@ -8,7 +8,16 @@ body{
     position: absolute;
     left: 80px;
 }
-.go{
+.message{
+    font-family:'Roboto',sans-serif;
+    color: black;
+    position: fixed;
+    text-align: center;
+    font-size: 15px;
+    z-index: +1;
+    left: 440px;
+}
+.game-over{
     font-family:'Roboto',sans-serif;
     color: black;
     position: fixed;

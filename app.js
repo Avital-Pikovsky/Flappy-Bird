@@ -2,6 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const bird = document.querySelector('.bird')
     const gameDisplay = document.querySelector('.game-container')
     const ground = document.querySelector('.ground')
+    const message = document.querySelector('.message')
+
 
     let birdLeft = 220
     let birdBottom = 100
@@ -38,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const gameOverText = (text = 'Game Over!') => {
         const go = document.createElement('div');
-        go.classList.add('go')
+        go.classList.add('game-over')
         go.innerText = text;
         gameDisplay.appendChild(go);
     }
