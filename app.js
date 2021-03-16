@@ -6,18 +6,54 @@ document.addEventListener('DOMContentLoaded', () => {
     let birdLeft = 220
     let birdBottom = 100
     let gravity = 2
-    let isGameOver = false
+    var isGameOver = false
     let gap = 430
+    let gameTimerId
+
+    const createBtn = (isGameOver, text = 'Start Game!') => {
+        const btn = document.createElement('div');
+        btn.classList.add('play-button')
+        btn.innerText = text;
+        gameDisplay.appendChild(btn);
+        btn.onclick = function () {
+            if (!isGameOver) {
+                gameDisplay.removeChild(btn)
+                gameTimerId = setInterval(startGame, 20)
+                setTimeout(generalObstacle, 1000)
+
+            }
+
+        }
+    }
+    createBtn()
+    const playAgain = (isGameOver, text = 'Play Again?') => {
+        const again = document.createElement('div');
+        again.classList.add('play-button')
+        again.innerText = text;
+        gameDisplay.appendChild(again);
+        again.onclick = function () {
+            window.location.reload(false);
+        }
+    }
+
+    const gameOverText = (text = 'Game Over!') => {
+        const go = document.createElement('div');
+        go.classList.add('go')
+        go.innerText = text;
+        gameDisplay.appendChild(go);
+    }
+
 
     function startGame() {
         //bird position
         birdBottom -= gravity
         bird.style.bottom = birdBottom + 'px'
         bird.style.left = birdLeft + 'px'
-    }
-    let gameTimerId = setInterval(startGame, 20)
 
-    // clearInterval(gameTimerId)
+    }
+
+    // let gameTimerId = setInterval(startGame, 20)
+
 
 
     //Jump only if press space key
@@ -31,6 +67,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (birdBottom < 500) birdBottom += 50
         bird.style.bottom = birdBottom + 'px'
         // console.log(birdBottom)
+        console.log("jump: " + isGameOver)
+
     }
     document.addEventListener('keyup', control)
 
@@ -40,6 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let obstacleBotton = randomHeight
         const obstacle = document.createElement('div')
         const topObstacle = document.createElement('div')
+
         if (!isGameOver) {
             obstacle.classList.add('obstacle')
             topObstacle.classList.add('topObstacle')
@@ -65,21 +104,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (obstacleLeft > 200 && obstacleLeft < 280 && birdLeft === 220 &&
                 (birdBottom < obstacleBotton + 153 || birdBottom > obstacleBotton + gap - 200) ||
-                birdBottom === 0) {
+                birdBottom < 0) {
                 gameOver()
                 clearInterval(timerId)
             }
         }
         let timerId = setInterval(moveObstacle, 20)
-        if (!isGameOver) setTimeout(generalObstacle, 3000)
+        if (!isGameOver) { setTimeout(generalObstacle, 3000) }
+
     }
-    generalObstacle()
 
     function gameOver() {
         clearInterval(gameTimerId)
-        // console.log('Game Over')
         isGameOver = true
+        gameOverText()
         document.removeEventListener('keyup', control)
+        playAgain()
     }
 
 })
