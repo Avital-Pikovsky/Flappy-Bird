@@ -54,10 +54,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     }
 
-    // let gameTimerId = setInterval(startGame, 20)
-
-
-
     //Jump only if press space key
     function control(e) {//e=event
         if (e.keyCode == 32) {
@@ -68,8 +64,6 @@ document.addEventListener('DOMContentLoaded', () => {
     function jump() {
         if (birdBottom < 500) birdBottom += 50
         bird.style.bottom = birdBottom + 'px'
-        // console.log(birdBottom)
-        console.log("jump: " + isGameOver)
 
     }
     document.addEventListener('keyup', control)
